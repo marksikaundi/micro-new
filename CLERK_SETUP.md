@@ -35,14 +35,20 @@ In your Clerk Dashboard:
    - Configure which user fields are required
    - Set up custom user metadata if needed
 
-## 5. Features Enabled
+## 5. Middleware Configuration ✅
+The middleware has been configured to work with Next.js 15 and Clerk v6:
+- Uses simplified `clerkMiddleware()` for compatibility
+- Routes are protected client-side in components
+- No additional middleware configuration needed
+
+## 6. Features Enabled
 
 ✅ **Authentication Pages**:
-- `/sign-in` - Sign in page
-- `/sign-up` - Sign up page  
+- `/sign-in` - Sign in page with modal support
+- `/sign-up` - Sign up page with modal support
 - `/profile` - User profile management
 
-✅ **Protected Routes**:
+✅ **Protected Routes** (Client-side protection):
 - `/admin` - Article creation (requires authentication)
 - `/dashboard` - User dashboard (requires authentication)
 - `/profile` - User profile (requires authentication)
@@ -57,15 +63,23 @@ In your Clerk Dashboard:
 - Articles are linked to user accounts
 - Author information automatically populated
 - User can see their own articles in dashboard
+- Middleware works with Next.js 15 + Turbopack
 
-## 6. Testing
-1. Restart your development server
-2. Visit http://localhost:3000
-3. Click "Subscribe" or "Sign In" to test authentication
-4. Create an account and try creating an article
+## 7. Testing Authentication
+1. Visit http://localhost:3000
+2. Click "Subscribe" or "Sign In" to test authentication
+3. Create an account and try creating an article
+4. Check the dashboard to see user-specific features
 
-## 7. Production Setup
+## 8. Troubleshooting
+If you encounter middleware issues:
+- Make sure you're using Clerk v6+ with Next.js 15
+- Restart your development server after changing middleware
+- Authentication is handled client-side in components for better compatibility
+
+## 9. Production Setup
 When deploying to production:
 1. Create a production Clerk application
 2. Update environment variables with production keys
 3. Configure production URLs in Clerk dashboard
+4. Test authentication flow in production environment
