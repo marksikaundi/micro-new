@@ -28,7 +28,11 @@ interface SidebarProps {
   }>;
 }
 
-const Sidebar = ({ latestArticles, popularArticles, categories }: SidebarProps) => {
+const Sidebar = ({
+  latestArticles,
+  popularArticles,
+  categories,
+}: SidebarProps) => {
   return (
     <aside className="space-y-8">
       {/* Newsletter Signup */}

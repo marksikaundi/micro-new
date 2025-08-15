@@ -35,7 +35,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         {featuredArticle && (
@@ -45,11 +45,15 @@ export default function HomePage() {
               <div className="lg:col-span-2">
                 <ArticleCard article={featuredArticle} variant="featured" />
               </div>
-              
+
               {/* Side Featured Articles */}
               <div className="space-y-6">
                 {otherFeatured.slice(0, 3).map((article) => (
-                  <ArticleCard key={article._id} article={article} variant="small" />
+                  <ArticleCard
+                    key={article._id}
+                    article={article}
+                    variant="small"
+                  />
                 ))}
               </div>
             </div>
@@ -64,7 +68,8 @@ export default function HomePage() {
                 BREAKING
               </span>
               <p className="text-sm md:text-base">
-                Latest business news and entrepreneurship insights - Stay ahead of the curve
+                Latest business news and entrepreneurship insights - Stay ahead
+                of the curve
               </p>
             </div>
           </div>
@@ -77,12 +82,17 @@ export default function HomePage() {
             {/* Latest Articles Section */}
             <section>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Latest Articles</h2>
-                <a href="/articles" className="text-red-600 hover:text-red-700 font-medium">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Latest Articles
+                </h2>
+                <a
+                  href="/articles"
+                  className="text-red-600 hover:text-red-700 font-medium"
+                >
                   View All →
                 </a>
               </div>
-              
+
               <div className="grid gap-8">
                 {articles.map((article) => (
                   <ArticleCard key={article._id} article={article} />
@@ -93,13 +103,22 @@ export default function HomePage() {
             {/* Category Sections */}
             <section>
               <div className="border-t border-gray-200 pt-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Leadership</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Leadership
+                </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {articles
-                    .filter((article) => article.category.toLowerCase() === "leadership")
+                    .filter(
+                      (article) =>
+                        article.category.toLowerCase() === "leadership"
+                    )
                     .slice(0, 4)
                     .map((article) => (
-                      <ArticleCard key={article._id} article={article} variant="small" />
+                      <ArticleCard
+                        key={article._id}
+                        article={article}
+                        variant="small"
+                      />
                     ))}
                 </div>
               </div>
@@ -107,13 +126,22 @@ export default function HomePage() {
 
             <section>
               <div className="border-t border-gray-200 pt-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Innovation</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Innovation
+                </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {articles
-                    .filter((article) => article.category.toLowerCase() === "innovation")
+                    .filter(
+                      (article) =>
+                        article.category.toLowerCase() === "innovation"
+                    )
                     .slice(0, 4)
                     .map((article) => (
-                      <ArticleCard key={article._id} article={article} variant="small" />
+                      <ArticleCard
+                        key={article._id}
+                        article={article}
+                        variant="small"
+                      />
                     ))}
                 </div>
               </div>
@@ -124,7 +152,9 @@ export default function HomePage() {
           <div className="lg:col-span-1">
             <Sidebar
               latestArticles={articles}
-              popularArticles={articles.sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))}
+              popularArticles={articles.sort(
+                (a, b) => (b.viewCount || 0) - (a.viewCount || 0)
+              )}
               categories={categories}
             />
           </div>

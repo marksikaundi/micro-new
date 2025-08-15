@@ -19,9 +19,11 @@ export const seedDatabase = mutation({
     // Now let's add some sample articles
     const sampleArticles = [
       {
-        title: "The Future of Remote Work: How CEOs Are Adapting to the New Normal",
+        title:
+          "The Future of Remote Work: How CEOs Are Adapting to the New Normal",
         slug: "future-remote-work-ceos-adapting",
-        excerpt: "As companies navigate the post-pandemic landscape, leaders are reimagining how work gets done. Here's what the most successful CEOs are doing differently.",
+        excerpt:
+          "As companies navigate the post-pandemic landscape, leaders are reimagining how work gets done. Here's what the most successful CEOs are doing differently.",
         content: `The pandemic fundamentally changed how we think about work. What started as an emergency response has evolved into a permanent shift that's reshaping the business landscape.
 
 According to recent studies, 87% of companies plan to offer hybrid work options indefinitely. This isn't just about employee satisfaction—it's about competitive advantage.
@@ -44,10 +46,12 @@ The companies that master this transition won't just survive—they'll have acce
         tags: ["remote work", "leadership", "management", "productivity"],
         author: {
           name: "Michael Rodriguez",
-          avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-          bio: "Senior Business Writer at Inc. Magazine"
+          avatar:
+            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+          bio: "Senior Business Writer at Inc. Magazine",
         },
-        featuredImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=400&fit=crop",
+        featuredImage:
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=400&fit=crop",
         readingTime: 5,
         isPublished: true,
         viewCount: 1243,
@@ -55,7 +59,8 @@ The companies that master this transition won't just survive—they'll have acce
       {
         title: "AI Revolution: 5 Startups That Are Changing Everything",
         slug: "ai-revolution-startups-changing-everything",
-        excerpt: "From healthcare to finance, these innovative companies are leveraging artificial intelligence to solve real-world problems and create massive value.",
+        excerpt:
+          "From healthcare to finance, these innovative companies are leveraging artificial intelligence to solve real-world problems and create massive value.",
         content: `Artificial intelligence is no longer the stuff of science fiction. Today's entrepreneurs are building AI-powered solutions that are transforming industries and creating billions in value.
 
 Here are five startups that are leading the charge:
@@ -79,13 +84,20 @@ What sets these companies apart isn't just their technology—it's their focus o
 
 The lesson for entrepreneurs? Don't just follow the AI trend. Identify a meaningful problem in an industry you understand, then figure out how AI can help solve it better than existing solutions.`,
         category: "Innovation",
-        tags: ["artificial intelligence", "startups", "technology", "innovation"],
+        tags: [
+          "artificial intelligence",
+          "startups",
+          "technology",
+          "innovation",
+        ],
         author: {
           name: "Emma Thompson",
-          avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
-          bio: "Technology Editor at Inc. Magazine"
+          avatar:
+            "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
+          bio: "Technology Editor at Inc. Magazine",
         },
-        featuredImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+        featuredImage:
+          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
         readingTime: 7,
         isPublished: true,
         viewCount: 2156,
@@ -93,7 +105,8 @@ The lesson for entrepreneurs? Don't just follow the AI trend. Identify a meaning
       {
         title: "The $100 Million Mistake: Lessons from a Failed Unicorn",
         slug: "100-million-mistake-failed-unicorn-lessons",
-        excerpt: "When CloudScale went from a $1 billion valuation to bankruptcy in 18 months, the business world took notice. Here's what went wrong and what we can learn.",
+        excerpt:
+          "When CloudScale went from a $1 billion valuation to bankruptcy in 18 months, the business world took notice. Here's what went wrong and what we can learn.",
         content: `CloudScale was supposed to be the next big thing. With $100 million in funding and a unicorn valuation, the cloud infrastructure startup seemed unstoppable. Then everything fell apart.
 
 In just 18 months, the company went from industry darling to cautionary tale. As someone who covered their rise and fall, I wanted to understand what went wrong—and what other entrepreneurs can learn from their mistakes.
@@ -138,10 +151,12 @@ CloudScale's story is a reminder that in the startup world, success and failure 
         tags: ["startups", "failure", "lessons learned", "venture capital"],
         author: {
           name: "David Park",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-          bio: "Senior Reporter at Inc. Magazine"
+          avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+          bio: "Senior Reporter at Inc. Magazine",
         },
-        featuredImage: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
+        featuredImage:
+          "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
         readingTime: 8,
         isPublished: true,
         viewCount: 3421,
@@ -149,7 +164,8 @@ CloudScale's story is a reminder that in the startup world, success and failure 
       {
         title: "How This 25-Year-Old Built a $10M Business in 2 Years",
         slug: "25-year-old-10-million-business-2-years",
-        excerpt: "Meet Jessica Wong, the young entrepreneur who turned a college side hustle into a multi-million dollar e-commerce empire. Here's her step-by-step playbook.",
+        excerpt:
+          "Meet Jessica Wong, the young entrepreneur who turned a college side hustle into a multi-million dollar e-commerce empire. Here's her step-by-step playbook.",
         content: `When Jessica Wong started selling handmade jewelry from her dorm room, she never imagined it would become a $10 million business. But two years later, that's exactly what happened.
 
 "I thought I was just making some pocket money for college," Wong tells me from her new 10,000-square-foot warehouse in Austin. "I had no idea I was building what would become Luminous Accessories."
@@ -210,10 +226,12 @@ For young entrepreneurs watching Wong's success, her message is simple: start wh
         tags: ["young entrepreneur", "e-commerce", "success story", "scaling"],
         author: {
           name: "Lisa Chen",
-          avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-          bio: "Entrepreneurship Writer at Inc. Magazine"
+          avatar:
+            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+          bio: "Entrepreneurship Writer at Inc. Magazine",
         },
-        featuredImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
+        featuredImage:
+          "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
         readingTime: 6,
         isPublished: true,
         viewCount: 4567,
@@ -221,7 +239,8 @@ For young entrepreneurs watching Wong's success, her message is simple: start wh
       {
         title: "The Productivity Hack That Saved My Startup",
         slug: "productivity-hack-saved-startup",
-        excerpt: "When our team was burning out and missing deadlines, I discovered a simple system that transformed our productivity. Here's how it works.",
+        excerpt:
+          "When our team was burning out and missing deadlines, I discovered a simple system that transformed our productivity. Here's how it works.",
         content: `Six months ago, my startup was in crisis. We were working 80-hour weeks, missing deadlines, and burning out fast. Our productivity was terrible despite the long hours, and I knew something had to change.
 
 That's when I discovered the "Energy-Based Scheduling" system that completely transformed how our team works.
@@ -292,10 +311,12 @@ For entrepreneurs who are constantly fighting the clock, energy-based scheduling
         tags: ["productivity", "time management", "energy", "leadership"],
         author: {
           name: "Alex Morrison",
-          avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-          bio: "Productivity Expert and Startup Founder"
+          avatar:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+          bio: "Productivity Expert and Startup Founder",
         },
-        featuredImage: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
+        featuredImage:
+          "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
         readingTime: 4,
         isPublished: true,
         viewCount: 2890,

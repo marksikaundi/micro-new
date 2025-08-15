@@ -11,9 +11,9 @@ import Sidebar from "@/components/sidebar";
 export default function CategoryPage() {
   const params = useParams();
   const categorySlug = params.category as string;
-  
-  const categoryArticles = useQuery(api.articles.getArticlesByCategory, { 
-    category: categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1) 
+
+  const categoryArticles = useQuery(api.articles.getArticlesByCategory, {
+    category: categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1),
   });
   const latestArticles = useQuery(api.articles.getPublishedArticles, {});
   const categories = useQuery(api.articles.getCategories);
@@ -35,22 +35,25 @@ export default function CategoryPage() {
     );
   }
 
-  const categoryName = categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1);
+  const categoryName =
+    categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1);
   const articles = latestArticles.page || [];
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         {/* Category Header */}
         <div className="mb-8">
           <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-            <a href="/" className="hover:text-red-600">Home</a>
+            <a href="/" className="hover:text-red-600">
+              Home
+            </a>
             <span>→</span>
             <span className="text-gray-900">{categoryName}</span>
           </nav>
-          
+
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {categoryName}
           </h1>
@@ -74,9 +77,10 @@ export default function CategoryPage() {
                   No articles found
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  There are no articles in the {categoryName.toLowerCase()} category yet.
+                  There are no articles in the {categoryName.toLowerCase()}{" "}
+                  category yet.
                 </p>
-                <a 
+                <a
                   href="/"
                   className="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors font-medium"
                 >
@@ -90,7 +94,9 @@ export default function CategoryPage() {
           <div className="lg:col-span-1">
             <Sidebar
               latestArticles={articles}
-              popularArticles={articles.sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))}
+              popularArticles={articles.sort(
+                (a, b) => (b.viewCount || 0) - (a.viewCount || 0)
+              )}
               categories={categories}
             />
           </div>

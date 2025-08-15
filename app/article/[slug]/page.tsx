@@ -15,7 +15,7 @@ import { Clock, Eye, Share2 } from "lucide-react";
 export default function ArticlePage() {
   const params = useParams();
   const slug = params.slug as string;
-  
+
   const article = useQuery(api.articles.getArticleBySlug, { slug });
   const latestArticles = useQuery(api.articles.getPublishedArticles, {});
   const categories = useQuery(api.articles.getCategories);
@@ -50,9 +50,16 @@ export default function ArticlePage() {
         <Header />
         <main className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-            <p className="text-gray-600 mb-6">The article you're looking for doesn't exist.</p>
-            <Link href="/" className="text-red-600 hover:text-red-700 font-medium">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              Article Not Found
+            </h1>
+            <p className="text-gray-600 mb-6">
+              The article you're looking for doesn't exist.
+            </p>
+            <Link
+              href="/"
+              className="text-red-600 hover:text-red-700 font-medium"
+            >
               ← Back to Homepage
             </Link>
           </div>
@@ -67,7 +74,7 @@ export default function ArticlePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Article Content */}
@@ -75,9 +82,11 @@ export default function ArticlePage() {
             <article className="space-y-6">
               {/* Breadcrumb */}
               <nav className="flex items-center space-x-2 text-sm text-gray-500">
-                <Link href="/" className="hover:text-red-600">Home</Link>
+                <Link href="/" className="hover:text-red-600">
+                  Home
+                </Link>
                 <span>→</span>
-                <Link 
+                <Link
                   href={`/category/${article.category.toLowerCase()}`}
                   className="hover:text-red-600"
                 >
@@ -129,9 +138,13 @@ export default function ArticlePage() {
                     </div>
                   )}
                   <div>
-                    <p className="font-medium text-gray-900">{article.author.name}</p>
+                    <p className="font-medium text-gray-900">
+                      {article.author.name}
+                    </p>
                     {article.author.bio && (
-                      <p className="text-sm text-gray-500">{article.author.bio}</p>
+                      <p className="text-sm text-gray-500">
+                        {article.author.bio}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -168,16 +181,22 @@ export default function ArticlePage() {
 
               {/* Article Content */}
               <div className="prose prose-lg max-w-none">
-                {article.content.split('\n\n').map((paragraph, index) => {
-                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                {article.content.split("\n\n").map((paragraph, index) => {
+                  if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
                     return (
-                      <h3 key={index} className="text-xl font-bold text-gray-900 mt-8 mb-4">
+                      <h3
+                        key={index}
+                        className="text-xl font-bold text-gray-900 mt-8 mb-4"
+                      >
                         {paragraph.slice(2, -2)}
                       </h3>
                     );
                   }
                   return (
-                    <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                    <p
+                      key={index}
+                      className="text-gray-700 leading-relaxed mb-4"
+                    >
                       {paragraph}
                     </p>
                   );
@@ -187,7 +206,9 @@ export default function ArticlePage() {
               {/* Tags */}
               {article.tags && article.tags.length > 0 && (
                 <div className="pt-6 border-t border-gray-200">
-                  <h3 className="text-sm font-medium text-gray-900 mb-3">Tags:</h3>
+                  <h3 className="text-sm font-medium text-gray-900 mb-3">
+                    Tags:
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {article.tags.map((tag) => (
                       <span
@@ -207,7 +228,9 @@ export default function ArticlePage() {
           <div className="lg:col-span-1">
             <Sidebar
               latestArticles={articles}
-              popularArticles={articles.sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))}
+              popularArticles={articles.sort(
+                (a, b) => (b.viewCount || 0) - (a.viewCount || 0)
+              )}
               categories={categories}
             />
           </div>

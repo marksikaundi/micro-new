@@ -45,7 +45,7 @@ const Header = () => {
             <Link href="/" className="flex items-center">
               <div className="text-3xl font-bold text-red-600">Inc.</div>
             </Link>
-            
+
             <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
               <div className="relative w-full">
                 <input

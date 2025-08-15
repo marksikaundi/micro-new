@@ -4,10 +4,12 @@ import { v } from "convex/values";
 // Get all published articles with pagination
 export const getPublishedArticles = query({
   args: {
-    paginationOpts: v.optional(v.object({
-      numItems: v.number(),
-      cursor: v.optional(v.string()),
-    })),
+    paginationOpts: v.optional(
+      v.object({
+        numItems: v.number(),
+        cursor: v.optional(v.string()),
+      })
+    ),
     category: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
@@ -17,7 +19,9 @@ export const getPublishedArticles = query({
       .order("desc");
 
     if (args.category) {
-      articlesQuery = articlesQuery.filter((q) => q.eq(q.field("category"), args.category));
+      articlesQuery = articlesQuery.filter((q) =>
+        q.eq(q.field("category"), args.category)
+      );
     }
 
     if (args.paginationOpts) {
@@ -28,7 +32,11 @@ export const getPublishedArticles = query({
       return await articlesQuery.paginate(paginationOptions);
     }
 
-    return { page: await articlesQuery.take(10), isDone: false, continueCursor: "" };
+    return {
+      page: await articlesQuery.take(10),
+      isDone: false,
+      continueCursor: "",
+    };
   },
 });
 
@@ -73,7 +81,9 @@ export const searchArticles = query({
   handler: async (ctx, args) => {
     return await ctx.db
       .query("articles")
-      .withSearchIndex("search_title", (q) => q.search("title", args.searchTerm))
+      .withSearchIndex("search_title", (q) =>
+        q.search("title", args.searchTerm)
+      )
       .filter((q) => q.eq(q.field("isPublished"), true))
       .take(10);
   },

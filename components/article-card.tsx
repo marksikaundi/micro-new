@@ -39,7 +39,9 @@ const ArticleCard = ({ article, variant = "default" }: ArticleCardProps) => {
   return (
     <article className={`group ${cardClasses[variant]}`}>
       {/* Image */}
-      <div className={`relative overflow-hidden rounded-lg ${imageClasses[variant]}`}>
+      <div
+        className={`relative overflow-hidden rounded-lg ${imageClasses[variant]}`}
+      >
         {article.featuredImage ? (
           <Image
             src={article.featuredImage}
@@ -65,25 +67,27 @@ const ArticleCard = ({ article, variant = "default" }: ArticleCardProps) => {
               {article.category}
             </Link>
             <span className="text-gray-400">•</span>
-            <time className="text-gray-500">{formatDate(article.publishedAt)}</time>
+            <time className="text-gray-500">
+              {formatDate(article.publishedAt)}
+            </time>
           </div>
 
           <Link href={`/article/${article.slug}`}>
-            <h3 className={`font-bold text-gray-900 group-hover:text-red-600 transition-colors ${
-              variant === "featured" 
-                ? "text-2xl md:text-3xl leading-tight" 
-                : variant === "small"
-                ? "text-sm leading-snug"
-                : "text-xl leading-tight"
-            }`}>
+            <h3
+              className={`font-bold text-gray-900 group-hover:text-red-600 transition-colors ${
+                variant === "featured"
+                  ? "text-2xl md:text-3xl leading-tight"
+                  : variant === "small"
+                  ? "text-sm leading-snug"
+                  : "text-xl leading-tight"
+              }`}
+            >
               {article.title}
             </h3>
           </Link>
 
           {variant !== "small" && (
-            <p className="text-gray-600 leading-relaxed">
-              {article.excerpt}
-            </p>
+            <p className="text-gray-600 leading-relaxed">{article.excerpt}</p>
           )}
 
           <div className="flex items-center justify-between pt-2">
@@ -103,9 +107,11 @@ const ArticleCard = ({ article, variant = "default" }: ArticleCardProps) => {
                   </span>
                 </div>
               )}
-              <span className="text-sm text-gray-600">{article.author.name}</span>
+              <span className="text-sm text-gray-600">
+                {article.author.name}
+              </span>
             </div>
-            
+
             <div className="flex items-center space-x-3 text-sm text-gray-500">
               <span>{article.readingTime} min read</span>
               {article.viewCount && (

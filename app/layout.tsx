@@ -10,8 +10,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Inc. Magazine - Business News, Leadership & Entrepreneurship",
-  description: "The essential news and insights for entrepreneurs building the companies of tomorrow. Get the latest business insights, leadership advice, and startup stories.",
-  keywords: "business, entrepreneurship, startups, leadership, innovation, technology, growth",
+  description:
+    "The essential news and insights for entrepreneurs building the companies of tomorrow. Get the latest business insights, leadership advice, and startup stories.",
+  keywords:
+    "business, entrepreneurship, startups, leadership, innovation, technology, growth",
 };
 
 export default function RootLayout({
@@ -22,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <ConvexClientProvider>
-          {children}
-        </ConvexClientProvider>
+        <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>
   );

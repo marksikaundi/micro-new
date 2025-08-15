@@ -51,7 +51,8 @@ const Footer = () => {
               <div className="text-3xl font-bold text-red-600">Inc.</div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              The essential news and insights for entrepreneurs building the companies of tomorrow.
+              The essential news and insights for entrepreneurs building the
+              companies of tomorrow.
             </p>
             <div className="flex space-x-3">
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
@@ -116,13 +117,22 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap items-center space-x-6 text-sm text-gray-400">
               <span>© 2025 Inc. Magazine. All rights reserved.</span>
-              <Link href="/privacy" className="hover:text-white transition-colors">
+              <Link
+                href="/privacy"
+                className="hover:text-white transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
+              <Link
+                href="/terms"
+                className="hover:text-white transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="hover:text-white transition-colors">
+              <Link
+                href="/cookies"
+                className="hover:text-white transition-colors"
+              >
                 Cookie Policy
               </Link>
             </div>
