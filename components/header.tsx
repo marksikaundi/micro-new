@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Search, Menu, User, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, User, X } from "lucide-react";
 import { useState } from "react";
 import { useUser, UserButton, SignInButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
 
   const menuCategories = [
     {
@@ -168,7 +169,7 @@ const Header = () => {
                 </div>
               ) : (
                 <Link href="/">
-                <button className="hidden md:block bg-blue-600 text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-blue-700 transition-colors">
+                  <button className="hidden md:block bg-blue-600 text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-blue-700 transition-colors">
                     SUBSCRIBE
                   </button>
                 </Link>
@@ -254,7 +255,7 @@ const Header = () => {
             {/* Menu Categories Grid */}
             <div className="flex-1 overflow-y-auto p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-7xl mx-auto">
-                {menuCategories.map((category, index) => (
+                {menuCategories.map((category) => (
                   <div key={category.title} className="space-y-4">
                     <h3 className="text-xl font-bold text-black mb-4">
                       {category.title}
@@ -283,9 +284,11 @@ const Header = () => {
                     Inc. Premium
                   </h3>
                   <div className="bg-gray-50 p-4 rounded">
-                    <img
+                    <Image
                       src="/api/placeholder/200/150"
                       alt="Inc. Premium"
+                      width={200}
+                      height={150}
                       className="w-full h-32 object-cover rounded mb-3"
                     />
                     <Link

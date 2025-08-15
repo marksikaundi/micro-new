@@ -280,8 +280,8 @@ const Footer = () => {
                 </span>
               </div>
               <span>
-                Inc.com adheres to NewsGuard's nine standards of credibility and
-                transparency.
+                Inc.com adheres to NewsGuard&apos;s nine standards of
+                credibility and transparency.
               </span>
               <Link
                 href="/learn-more"

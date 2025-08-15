@@ -3,6 +3,7 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ArticleCard from "@/components/article-card";
@@ -47,9 +48,9 @@ export default function CategoryPage() {
         {/* Category Header */}
         <div className="mb-8">
           <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4">
-            <a href="/" className="hover:text-red-600">
+            <Link href="/" className="hover:text-red-600">
               Home
-            </a>
+            </Link>
             <span>→</span>
             <span className="text-gray-900">{categoryName}</span>
           </nav>
@@ -80,12 +81,12 @@ export default function CategoryPage() {
                   There are no articles in the {categoryName.toLowerCase()}{" "}
                   category yet.
                 </p>
-                <a
+                <Link
                   href="/"
                   className="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors font-medium"
                 >
                   Browse All Articles
-                </a>
+                </Link>
               </div>
             )}
           </div>
