@@ -21,7 +21,11 @@ export const getPublishedArticles = query({
     }
 
     if (args.paginationOpts) {
-      return await articlesQuery.paginate(args.paginationOpts);
+      const paginationOptions = {
+        numItems: args.paginationOpts.numItems,
+        cursor: args.paginationOpts.cursor || null,
+      };
+      return await articlesQuery.paginate(paginationOptions);
     }
 
     return { page: await articlesQuery.take(10), isDone: false, continueCursor: "" };
