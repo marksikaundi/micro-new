@@ -13,16 +13,19 @@ export default defineSchema({
       name: v.string(),
       avatar: v.optional(v.string()),
       bio: v.optional(v.string()),
+      userId: v.optional(v.string()), // Clerk user ID
     }),
     featuredImage: v.optional(v.string()),
     publishedAt: v.number(),
     readingTime: v.number(), // in minutes
     isPublished: v.boolean(),
     viewCount: v.optional(v.number()),
+    createdBy: v.optional(v.string()), // Clerk user ID
   })
     .index("by_slug", ["slug"])
     .index("by_category", ["category"])
     .index("by_published", ["isPublished", "publishedAt"])
+    .index("by_user", ["createdBy"])
     .searchIndex("search_title", {
       searchField: "title",
     }),

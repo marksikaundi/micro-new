@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Search, Menu, User } from "lucide-react";
+import { Search, Menu, User, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useUser, UserButton, SignInButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
 
   const navigationItems = [
     { label: "Leadership", href: "/category/leadership" },
@@ -24,7 +26,15 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <span>Subscribe</span>
             <span>•</span>
-            <span>Sign In</span>
+            {isSignedIn ? (
+              <span>Welcome, {user?.firstName || 'User'}!</span>
+            ) : (
+              <SignInButton mode="modal">
+                <button className="hover:text-gray-300 transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+            )}
           </div>
           <div className="flex items-center space-x-4">
             <span>Follow Inc.</span>
@@ -61,10 +71,41 @@ const Header = () => {
               <button className="md:hidden">
                 <Search className="w-5 h-5" />
               </button>
-              <button className="hidden md:flex items-center space-x-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">
-                <User className="w-4 h-4" />
-                <span>Subscribe</span>
-              </button>
+              
+              {isSignedIn ? (
+                <div className="hidden md:flex items-center space-x-4">
+                  <Link
+                    href="/dashboard"
+                    className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/admin"
+                    className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                  >
+                    Write
+                  </Link>
+                  <UserButton
+                    appearance={{
+                      elements: {
+                        avatarBox: "w-8 h-8",
+                        userButtonPopoverCard: "border border-gray-200 shadow-lg",
+                      },
+                    }}
+                    userProfileMode="navigation"
+                    userProfileUrl="/profile"
+                  />
+                </div>
+              ) : (
+                <SignInButton mode="modal">
+                  <button className="hidden md:flex items-center space-x-2 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">
+                    <User className="w-4 h-4" />
+                    <span>Subscribe</span>
+                  </button>
+                </SignInButton>
+              )}
+              
               <button
                 className="md:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -114,9 +155,37 @@ const Header = () => {
                 ))}
               </div>
               <div className="mt-4 pt-4 border-t border-gray-200">
-                <button className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors">
-                  Subscribe
-                </button>
+                {isSignedIn ? (
+                  <div className="space-y-3">
+                    <Link
+                      href="/dashboard"
+                      className="block text-center py-2 text-gray-700 hover:text-red-600 font-medium"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      href="/admin"
+                      className="block text-center py-2 text-gray-700 hover:text-red-600 font-medium"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Write Article
+                    </Link>
+                    <Link
+                      href="/profile"
+                      className="block text-center py-2 text-gray-700 hover:text-red-600 font-medium"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Profile
+                    </Link>
+                  </div>
+                ) : (
+                  <SignInButton mode="modal">
+                    <button className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors">
+                      Subscribe
+                    </button>
+                  </SignInButton>
+                )}
               </div>
             </div>
           </div>

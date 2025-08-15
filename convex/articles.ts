@@ -109,10 +109,12 @@ export const createArticle = mutation({
       name: v.string(),
       avatar: v.optional(v.string()),
       bio: v.optional(v.string()),
+      userId: v.optional(v.string()),
     }),
     featuredImage: v.optional(v.string()),
     readingTime: v.number(),
     isPublished: v.boolean(),
+    createdBy: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const articleId = await ctx.db.insert("articles", {
@@ -121,6 +123,18 @@ export const createArticle = mutation({
       viewCount: 0,
     });
     return articleId;
+  },
+});
+
+// Get articles by user
+export const getArticlesByUser = query({
+  args: { userId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("articles")
+      .withIndex("by_user", (q) => q.eq("createdBy", args.userId))
+      .order("desc")
+      .collect();
   },
 });
 

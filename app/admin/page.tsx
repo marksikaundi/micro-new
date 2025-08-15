@@ -6,17 +6,19 @@ import { api } from "@/convex/_generated/api";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { calculateReadingTime, slugify } from "@/lib/utils";
+import { useUser, SignInButton } from "@clerk/nextjs";
 
 export default function AdminPage() {
   const [isCreating, setIsCreating] = useState(false);
+  const { isSignedIn, user } = useUser();
   const [formData, setFormData] = useState({
     title: "",
     excerpt: "",
     content: "",
     category: "Leadership",
     tags: "",
-    authorName: "",
-    authorAvatar: "",
+    authorName: user?.fullName || "",
+    authorAvatar: user?.imageUrl || "",
     authorBio: "",
     featuredImage: "",
     isPublished: false,
@@ -24,6 +26,41 @@ export default function AdminPage() {
 
   const createArticle = useMutation(api.articles.createArticle);
   const categories = useQuery(api.articles.getCategories);
+
+  // Update form data when user loads
+  useState(() => {
+    if (user) {
+      setFormData(prev => ({
+        ...prev,
+        authorName: user.fullName || "",
+        authorAvatar: user.imageUrl || "",
+      }));
+    }
+  });
+
+  if (!isSignedIn) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="max-w-md mx-auto text-center">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Authentication Required
+            </h1>
+            <p className="text-gray-600 mb-6">
+              You need to sign in to access the admin panel and create articles.
+            </p>
+            <SignInButton mode="modal">
+              <button className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors font-medium">
+                Sign In to Continue
+              </button>
+            </SignInButton>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,10 +83,12 @@ export default function AdminPage() {
           name: formData.authorName,
           avatar: formData.authorAvatar || undefined,
           bio: formData.authorBio || undefined,
+          userId: user?.id,
         },
         featuredImage: formData.featuredImage || undefined,
         readingTime: calculateReadingTime(formData.content),
         isPublished: formData.isPublished,
+        createdBy: user?.id,
       });
 
       // Reset form
