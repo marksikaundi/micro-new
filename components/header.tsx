@@ -167,16 +167,17 @@ const Header = () => {
                   />
                 </div>
               ) : (
-                <SignInButton mode="modal">
-                  <button className="hidden md:block bg-blue-600 text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-blue-700 transition-colors">
+                <Link href="/">
+                <button className="hidden md:block bg-blue-600 text-white px-6 py-2 text-sm font-medium uppercase tracking-wide hover:bg-blue-700 transition-colors">
                     SUBSCRIBE
                   </button>
-                </SignInButton>
+                </Link>
               )}
-
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <User className="w-5 h-5 text-gray-600" />
-              </button>
+              <SignInButton mode="modal">
+                <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                  <User className="w-5 h-5 text-gray-600" />
+                </button>
+              </SignInButton>
             </div>
           </div>
 
