@@ -13,8 +13,8 @@ export default function SignUpPage() {
           </p>
         </div>
         <div className="flex justify-center">
-          <SignUp 
-            routing="path" 
+          <SignUp
+            routing="path"
             path="/sign-up"
             redirectUrl="/"
             signInUrl="/sign-in"

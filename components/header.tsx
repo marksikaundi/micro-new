@@ -27,7 +27,7 @@ const Header = () => {
             <span>Subscribe</span>
             <span>•</span>
             {isSignedIn ? (
-              <span>Welcome, {user?.firstName || 'User'}!</span>
+              <span>Welcome, {user?.firstName || "User"}!</span>
             ) : (
               <SignInButton mode="modal">
                 <button className="hover:text-gray-300 transition-colors">
@@ -71,7 +71,7 @@ const Header = () => {
               <button className="md:hidden">
                 <Search className="w-5 h-5" />
               </button>
-              
+
               {isSignedIn ? (
                 <div className="hidden md:flex items-center space-x-4">
                   <Link
@@ -90,7 +90,8 @@ const Header = () => {
                     appearance={{
                       elements: {
                         avatarBox: "w-8 h-8",
-                        userButtonPopoverCard: "border border-gray-200 shadow-lg",
+                        userButtonPopoverCard:
+                          "border border-gray-200 shadow-lg",
                       },
                     }}
                     userProfileMode="navigation"
@@ -105,7 +106,7 @@ const Header = () => {
                   </button>
                 </SignInButton>
               )}
-              
+
               <button
                 className="md:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

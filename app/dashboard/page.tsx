@@ -35,13 +35,13 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           {/* Dashboard Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Welcome back, {user?.firstName || 'Writer'}!
+              Welcome back, {user?.firstName || "Writer"}!
             </h1>
             <p className="text-gray-600">
               Manage your articles and create new content
@@ -50,7 +50,9 @@ export default function DashboardPage() {
 
           {/* Quick Actions */}
           <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Quick Actions
+            </h2>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/admin"
@@ -79,13 +81,15 @@ export default function DashboardPage() {
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
               <h3 className="text-2xl font-bold text-gray-900">
-                {userArticles?.filter(article => article.isPublished).length || 0}
+                {userArticles?.filter((article) => article.isPublished)
+                  .length || 0}
               </h3>
               <p className="text-gray-600">Published</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
               <h3 className="text-2xl font-bold text-gray-900">
-                {userArticles?.filter(article => !article.isPublished).length || 0}
+                {userArticles?.filter((article) => !article.isPublished)
+                  .length || 0}
               </h3>
               <p className="text-gray-600">Drafts</p>
             </div>
@@ -93,8 +97,10 @@ export default function DashboardPage() {
 
           {/* User's Articles */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Articles</h2>
-            
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Your Articles
+            </h2>
+
             {userArticles && userArticles.length > 0 ? (
               <div className="space-y-8">
                 {userArticles.map((article) => (
@@ -118,7 +124,8 @@ export default function DashboardPage() {
                     No articles yet
                   </h3>
                   <p className="text-gray-600 mb-6">
-                    Start sharing your insights with the world by creating your first article.
+                    Start sharing your insights with the world by creating your
+                    first article.
                   </p>
                   <Link
                     href="/admin"

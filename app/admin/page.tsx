@@ -30,7 +30,7 @@ export default function AdminPage() {
   // Update form data when user loads
   useState(() => {
     if (user) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         authorName: user.fullName || "",
         authorAvatar: user.imageUrl || "",
