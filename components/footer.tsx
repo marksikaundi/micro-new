@@ -193,10 +193,10 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center mt-6">
-            <p className="text-sm text-gray-500">
-              Fast Company & Inc © 2025 Mansueto Ventures, LLC
+            {/* <p className="text-sm text-gray-500">
+              DevC.
               <span className="ml-2">⊳</span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
@@ -268,7 +268,7 @@ const Footer = () => {
           </div>
 
           {/* NewsGuard Section */}
-          <div className="flex justify-center items-center mt-6 pt-4 border-t border-gray-200">
+          {/* <div className="flex justify-center items-center mt-6 pt-4 border-t border-gray-200">
             <div className="flex items-center space-x-3 text-xs text-gray-500">
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-4 bg-green-600 rounded flex items-center justify-center">
@@ -290,7 +290,7 @@ const Footer = () => {
                 Learn More
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

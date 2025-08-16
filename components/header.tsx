@@ -135,7 +135,7 @@ const Header = () => {
               className="absolute left-1/2 transform -translate-x-1/2"
             >
               <div className="text-4xl font-bold text-black tracking-tight">
-                Inc.
+                DevC.
               </div>
             </Link>
 
